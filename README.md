@@ -1,11 +1,19 @@
-## Project: Replicate - Website Snapshot & Local Development Environment
+## Replicate - Website Snapshot & Local Development Environment
 
-**1. Goal/Vision:**
+- [Replicate - Website Snapshot \& Local Development Environment](#replicate---website-snapshot--local-development-environment)
+  - [Goal/Vision](#goalvision)
+  - [Core Features](#core-features)
+  - [Key Components / Architecture](#key-components--architecture)
+  - [Tech Stack](#tech-stack)
+  - [Potential Challenges](#potential-challenges)
+
+### Goal/Vision
+
 To create a tool that fetches a live website's front-end assets (HTML, CSS, JS), sets up a local server to serve them, and enables developers to modify these assets locally with hot-reloading for rapid prototyping and testing directly against production APIs (assuming CORS allows).
 
 _This is just for fun, You can probably just use developMode in the browser_
 
-**2. Core Features:**
+### Core Features
 
 -   **Website Snapshotting:** Fetch the HTML source of a given URL and recursively download linked CSS, JavaScript, and potentially image assets.
 -   **Asset Rewriting:** Modify links/paths within downloaded assets (HTML `href`/`src`, CSS `url()`) to point to the locally served copies.
@@ -13,7 +21,7 @@ _This is just for fun, You can probably just use developMode in the browser_
 -   **File Watching & Hot-Reloading:** Monitor local copies of assets for changes and automatically refresh the browser or inject changes (HMR for CSS, potentially page reload for HTML/JS).
 -   **Modification Workspace:** Provide a clear directory structure for the captured site where developers can edit files.
 
-**3. Key Components / Architecture:**
+### Key Components / Architecture
 
 -   **Fetcher/Downloader:**
     -   Takes a target URL.
@@ -37,7 +45,7 @@ _This is just for fun, You can probably just use developMode in the browser_
 -   **CLI / User Interface:**
     -   Command-line interface to initiate snapshot (`replicate <url>`) and start the dev server (`replicate serve`).
 
-**4. Tech Stack:**
+### Tech Stack
 
 -   Core Logic: Python
 -   HTTP Client: `requests`.
@@ -46,7 +54,7 @@ _This is just for fun, You can probably just use developMode in the browser_
 -   File Watching: `watchdog`.
 -   WebSockets: `websockets`.
 
-**5. Potential Challenges:**
+### Potential Challenges
 
 -   Handling complex websites with dynamically loaded content/assets via JavaScript.
 -   Accurately parsing and rewriting asset paths in various contexts (HTML, CSS, JS strings).
